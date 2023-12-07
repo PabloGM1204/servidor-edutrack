@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alumnos",
+  "info": {
+    "singularName": "alumno",
+    "pluralName": "alumnos",
+    "displayName": "Alumnos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "FechaNacimiento": {
+      "type": "date"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "notas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nota.nota",
+      "mappedBy": "alumnoFK"
+    },
+    "mesa": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mesa.mesa",
+      "inversedBy": "alumnoFK"
+    },
+    "Foto": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
